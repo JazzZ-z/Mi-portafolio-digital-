@@ -1,0 +1,505 @@
+/* Variables - Nueva paleta de colores */
+:root {
+    --primary-color: #2c698d; /* Azul profundo */
+    --secondary-color: #bae8e8; /* Azul claro */
+    --accent-color: #ff9a8d; /* Coral */
+    --background-color: #f8f9fa; /* Gris muy claro */
+    --dark-accent: #272643; /* Azul oscuro */
+    --text-color: #2d334a; /* Gris azulado oscuro */
+    --light-text: #ffffff; /* Blanco */
+    --card-background: #ffffff; /* Blanco */
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Navbar - Actualizado para la nueva paleta de colores */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(44, 105, 141, 0.95); /* Usando el color primary con transparencia */
+    padding: 1rem 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+#navbar.scrolled {
+    padding: 0.8rem 0;
+    background-color: rgba(39, 38, 67, 0.95); /* Usando el dark-accent con transparencia */
+}
+
+#navbar ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+#navbar a {
+    color: var(--light-text);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    position: relative;
+}
+
+#navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--accent-color);
+    transition: all 0.2s ease;
+    transform: translateX(-50%);
+}
+
+#navbar a:hover::after {
+    width: 70%;
+}
+
+#navbar a:hover {
+    color: var(--secondary-color);
+}
+
+/* Welcome Section - Mejorado */
+#welcome-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--dark-accent));
+    color: var(--light-text);
+    padding: 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+#welcome-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 70%, var(--accent-color) 0%, transparent 25%),
+                radial-gradient(circle at 70% 30%, var(--secondary-color) 0%, transparent 25%);
+    opacity: 0.1;
+    z-index: 1;
+}
+
+#welcome-section h1 {
+    font-size: 3.8rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+    z-index: 2;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-out;
+}
+
+#welcome-section p {
+    font-size: 1.8rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 300;
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+.welcome-buttons {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 2;
+    animation: fadeInUp 1s ease-out 0.6s backwards;
+}
+
+.welcome-btn {
+    background-color: var(--accent-color);
+    color: var(--light-text);
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.welcome-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: #ff8a7d;
+}
+
+.welcome-btn.outline {
+    background-color: transparent;
+    border: 2px solid var(--light-text);
+}
+
+.welcome-btn.outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Projects Section - Actualizado para la nueva paleta */
+#projects {
+    padding: 6rem 2rem;
+    background-color: var(--background-color);
+}
+
+#projects h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#projects h2::after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 3px;
+    background-color: var(--accent-color);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.projects-subtitle {
+    text-align: center;
+    color: var(--text-color);
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-tile {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.project-tile:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.project-tile a {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos mejorados para las imágenes - Actualizado para la nueva paleta */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease, filter 0.4s ease;
+    padding: 0.5rem;
+}
+
+/* Animación para las imágenes */
+.project-tile:hover .project-image {
+    transform: scale(1.08);
+    filter: brightness(1.05);
+}
+
+.project-title {
+    padding: 1.2rem 1rem 0.8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: center;
+    background-color: var(--card-background);
+    margin: 0;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.project-tile:hover .project-title {
+    color: var(--primary-color);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0 1rem 1.2rem;
+    justify-content: center;
+    background-color: var(--card-background);
+}
+
+.project-tags span {
+    background-color: var(--secondary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--dark-accent);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500;
+}
+
+.project-tile:hover .project-tags span {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+}
+
+/* Contact Section - Actualizado para la nueva paleta */
+#contact {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, var(--dark-accent), var(--primary-color));
+    color: var(--light-text);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#contact::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 80%, var(--secondary-color) 0%, transparent 20%),
+                radial-gradient(circle at 80% 20%, var(--accent-color) 0%, transparent 20%);
+    opacity: 0.1;
+    z-index: 1;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+#contact h2::after {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 3px;
+    background-color: var(--accent-color);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#contact p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-links a {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.8rem;
+    border-radius: 8px;
+    transition: all 0.15s ease; /* Transición más rápida para la sección de contactos */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-links a:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px); /* Movimiento ligeramente menor para que se sienta más rápido */
+    border-color: transparent;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.contact-links i {
+    font-size: 1.5rem;
+    margin-right: 0.8rem;
+}
+
+/* Footer - Actualizado para la nueva paleta */
+footer {
+    background-color: var(--dark-accent);
+    color: var(--light-text);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive Design - Ajustado para la nueva implementación */
+@media (max-width: 1200px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    #welcome-section h1 {
+        font-size: 2.8rem;
+    }
+    
+    #welcome-section p {
+        font-size: 1.2rem;
+    }
+    
+    .welcome-buttons {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+    
+    .welcome-btn {
+        width: 200px;
+    }
+    
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .image-container {
+        height: 200px;
+    }
+    
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-links a {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    #navbar ul {
+        gap: 0.8rem;
+    }
+    
+    #navbar a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.7rem;
+    }
+    
+    #welcome-section h1 {
+        font-size: 2rem;
+    }
+    
+    #welcome-section p {
+        font-size: 1rem;
+    }
+    
+    #projects h2,
+    #contact h2 {
+        font-size: 1.8rem;
+    }
+    
+    .projects-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .image-container {
+        height: 180px;
+    }
+}
